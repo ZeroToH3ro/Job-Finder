@@ -28,13 +28,13 @@
                             <table class="table text-center">
                                 <thead>
                                 <tr>
-                                    <th scope="col">Sl:</th>
-                                    <th scope="col">Nababur:</th>
-                                    <th scope="col">Email:</th>
-                                    <th scope="col">Gender:</th>
-                                    <th scope="col">Bio:</th>
-                                    <th scope="col">Cover letter:</th>
-                                    <th scope="col">Resume:</th>
+                                    <th scope="col">Sl</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Bio</th>
+                                    <th scope="col">Cover Letter</th>
+                                    <th scope="col">Resume</th>
                                 </tr>
                                 </thead>
                                 <tbody>

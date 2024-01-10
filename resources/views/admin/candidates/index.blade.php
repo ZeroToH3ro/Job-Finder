@@ -13,7 +13,7 @@
             </ol>
         </nav>
         <div class="create-item">
-            <a href="#" class="theme-secondary-btn btn btn-secondary"><i
+            <a href="{{ route('adminExportCandidate') }}" class="theme-secondary-btn btn btn-secondary"><i
                     class="material-icons">import_export</i>&nbsp;Export candidate</a>
         </div>
     </div>

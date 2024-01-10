@@ -27,6 +27,7 @@ Route::middleware('admin')->prefix('dashboard')->group(function () {
     Route::get('/candidate/edit/{id}', [DashboardController::class, 'editCandidate'])->name('adminEditCan');
     Route::post('/candidate/edit/{id}', [DashboardController::class, 'updateCandidate'])->name('adminCanUpdate');
     Route::post('/candidate/delete/{id}', [DashboardController::class, 'destroyCandidate'])->name('adminCanDelete');
+    Route::get('/candidate/export', [DashboardController::class, 'exportCandidate'])->name('adminExportCandidate');
 
     // All Employer
     Route::get('/employers', [DashboardController::class, 'getEmployers'])->name('adminEmployers');
@@ -34,6 +35,7 @@ Route::middleware('admin')->prefix('dashboard')->group(function () {
     Route::get('/employer/edit/{id}', [DashboardController::class, 'editEmployer'])->name('adminEditEmp');
     Route::post('/employer/edit/{id}', [DashboardController::class, 'updateEmployer'])->name('adminEmpUpdate');
     Route::post('/employer/delete', [DashboardController::class, 'destroyEmployer'])->name('adminEmpDelete');
+    Route::get('/employer/export', [DashboardController::class, 'exportEmployer'])->name('adminExportEmployer');
 
     // All Categroy
     Route::get('/category', [DashboardController::class, 'getAllCategory'])->name('adminCategory');

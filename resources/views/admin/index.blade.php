@@ -174,22 +174,6 @@
 
     </div>
 
-    <div class="row mt-3">
-
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chart-container">
-                        <canvas id="weekly-visitor"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-
     <!--====== Chart.min js ======-->
     <script src="{{ asset('backend/assets/js/Chart.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/Chart.bundle.min.js') }}"></script>

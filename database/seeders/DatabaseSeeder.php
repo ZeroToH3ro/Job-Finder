@@ -50,14 +50,12 @@ class DatabaseSeeder extends Seeder
             'Agriculture and Farming',
             'Construction and Skilled Trades'
         ];
-        
-        
-        
 
+        
         foreach($categories as $category){
             Category::create(
                 [
-                'name'=> $category, 
+                'name'=> $category,
                 'slug'=> Str::slug($category),
                 'status'=> '1'
                 ]

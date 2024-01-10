@@ -52,7 +52,7 @@
                     <script>
                         document.write(new Date().getFullYear());
                     </script> All Rights Reserved | This JobBoard develop by <a
-                        href="https://nababur.info/" target="_blank">Nababur rahaman</a>
+                        href="https://nababur.info/" target="_blank">Trinh Ngoc Minh</a>
                 </p>
             </div>
 

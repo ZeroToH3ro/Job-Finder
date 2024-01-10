@@ -13,7 +13,7 @@
             </ol>
         </nav>
         <div class="create-item">
-            <a href="#" class="theme-secondary-btn btn btn-secondary"><i class="material-icons">import_export</i>&nbsp;Export employers</a>
+            <a href="{{ route('adminExportEmployer') }}" class="theme-secondary-btn btn btn-secondary"><i class="material-icons">import_export</i>&nbsp;Export employers</a>
         </div>
     </div>
     <!--  Header BreadCrumb -->

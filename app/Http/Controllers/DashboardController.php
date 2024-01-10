@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CandidateExport;
+use App\Exports\EmployersExport;
+use App\Http\Middleware\Employer;
 use App\Http\Requests\JobPostRequest;
 use App\Models\Category;
 use App\Models\Company;
@@ -13,6 +16,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+
 class DashboardController extends Controller
 {
     public function index(){
@@ -103,9 +108,6 @@ class DashboardController extends Controller
         return redirect('/dashboard/jobs')->with('success', 'Status Updated Successfully!');
     }
 
-
-
-
     /**
      * Store a newly created resource in storage.
      */
@@ -138,9 +140,6 @@ class DashboardController extends Controller
         return redirect()->back()->with('success', 'Job posted Successfully.');
     }
 
-
-
-
     // Job Trash method
     public function jobTrash(){
         $jobs = Job::onlyTrashed()->get();
@@ -153,9 +152,6 @@ class DashboardController extends Controller
         return redirect('/dashboard/jobs')->with('success', 'Job restored Successfully!');
    }
 
-
-
-
     /**
      *  Delete the single job
      */
@@ -165,7 +161,6 @@ class DashboardController extends Controller
         $jobTrash->delete();
         return redirect('/dashboard/jobs')->with('success', 'Job Trash Successfully!');
     }
-
 
     // Job Delete permanantly method
     public function jobDeletePermanantly(Request $request){
@@ -179,9 +174,7 @@ class DashboardController extends Controller
     public function getEmployers(){
         $employers = User::latest()->where('user_type', 'employer')->get();
         return view('admin.employers.index', compact('employers'));
-
     }
-
 
     /**
      *  employer active/deactive method
@@ -217,7 +210,6 @@ class DashboardController extends Controller
 
         ]);
 
-
         Company::updateOrCreate(
             ['user_id' => $id],
             [
@@ -229,8 +221,6 @@ class DashboardController extends Controller
 
             ]
         );
-
-
 
         $employer->update($request->all());
 
@@ -688,20 +678,22 @@ class DashboardController extends Controller
 
     }
 
-
     public function destroyTestimoni(Request $request, string $id){
         $testimoni = Testimonial::find($id);
         $testimoni->delete();
         return redirect('/dashboard/testimonials')->with('success', 'Testimonial Deleted Successfully!');
     }
 
-
     // Setting method
     public function settings(){
         return view('admin.settings.index');
     }
 
+    public function exportCandidate(){
+        return Excel::download(new CandidateExport, 'candidate.xlsx');
+    }
 
-
-
+    public function exportEmployer(){
+        return Excel::download(new EmployersExport, 'employers.xlsx');
+    }
 }
